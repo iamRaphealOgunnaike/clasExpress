@@ -8,11 +8,12 @@ const path = require('path');//forcefuly seeing config.env
 
 
 
+
 dotenv.config({path: 'config.env'})
 let PORT = process.env.PORT|| 2000
 
 
-
+re.render('render')
 app.get("/" ,(req, res) => {
     res.send('sail crd app')
 })
