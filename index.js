@@ -6,7 +6,7 @@ const mongoose  = require('mongoose');
 const path = require('path');//forcefuly seeing config.en
 const connectBD = require('./server/db/connection')
 const morgan = require('morgan');
-
+const connectDB= require('./server/db/connection')
 
 
 
@@ -24,14 +24,9 @@ app.use('/js', express.static(path.resolve(__dirname,'assets/js')))
 
 
 // re.render('render')
-app.get("/" ,(req, res) => {
-    res.render('index')
-})
-app.get("/register" ,(req, res) => {
-    res.render('register')
-})
+connectDB()
 
-app.use('/', require('./server/routes'))/// connection of the route
+app.use('/', require('./server/routes/routes'))/// connection of the route
 
 app.listen(PORT,() =>{ 
     console.log(`your app is currently availilable in ${PORT}`);
